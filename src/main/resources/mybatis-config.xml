@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!--写实体类的别名，则在mapper.xml文件中直接用类别名即可<resultMap id="BaseResultMap" type="Lan">
+	<typeAliases>
+		<typeAlias alias="Lan" type="com.entity.Language"/>
+	</typeAliases>
+	-->
+
+	<settings>
+		<!-- 把数据库中的下划线转化为变量名的驼峰式-->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<!-- 使用数据库的主键
+		<setting name="useGeneratedKeys" value="false"/>
+		-->
+		<!-- 使用数据库别名代替列名，在mapper.xml中parameterType有用-->
+		<setting name="useColumnLabel" value="true"/>
+	</settings>
+
+
+	<!--<typeHandlers>
+		<typeHandler handler="com.handler.VarcharToListHandler" />
+		<typeHandler handler="com.handler.VarcharToStringsHandler" />
+	</typeHandlers>-->
+
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<!--分页参数合理化  -->
+			<property name="reasonable" value="true"/>
+		</plugin>
+	</plugins>
+
+
+
+</configuration>
+
